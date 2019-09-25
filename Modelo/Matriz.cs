@@ -5,6 +5,7 @@ namespace Modelo
 {
     public class Matriz
     {
+        //This method multiplies two  matrices nxn
         public double[,] multiplyMatrix(double[,] matriz,double[,] matriz2)
         {
             double[,] a = matriz;
@@ -32,6 +33,7 @@ namespace Modelo
             return c;
         }
 
+        //This method raises an array N times
         public double[,] multiply(double[,] actual,double[,] simple,int exponente) {
             double[,] final = new double[actual.GetLength(0), actual.GetLength(0)];
             int conta = 0;
