@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Double;
 
 namespace Modelo
 {
@@ -12,24 +13,19 @@ namespace Modelo
             double[,] b = matriz2;
             double[,] c = new double[a.Length, a.Length];
             c = new double[a.GetLength(0), b.GetLength(0)];
-            int x = 0;
-            
-                
-                    for (int i = 0; i < c.GetLength(0); i++)
-                    {
-                        for (int j = 0; j < c.GetLength(0); j++)
-                        {
-                            for (int k = 0; k < c.GetLength(0); k++)
-                            {
-                                c[i, j] = c[i, j] + a[i, k] * b[k, j];
-                            }
+            int x = 0;        
+            for (int i = 0; i < c.GetLength(0); i++)
+             {
+                for (int j = 0; j < c.GetLength(0); j++)
+                {
+                    for (int k = 0; k < c.GetLength(0); k++)
+                     {
+                       c[i, j] = c[i, j] + a[i, k] * b[k, j];
+                     }
+                 }
 
-
-                        }
-
-                    }             
-                   
-              
+             }           
+                 
             return c;
         }
 
@@ -49,8 +45,8 @@ namespace Modelo
         public double[,] ReadArchive()
         {
             double[,] resultado;
-            StreamReader reader = new StreamReader("datos2.csv");
-            StreamReader reader1 = new StreamReader("datos2.csv");
+            StreamReader reader = new StreamReader("matrixDates.csv");
+            StreamReader reader1 = new StreamReader("matrixDates.csv");
             string line;         
             String[] ini = reader1.ReadLine().Split(';');
             resultado = new double[ini.GetLength(0), ini.GetLength(0)];
@@ -64,6 +60,18 @@ namespace Modelo
                 i++;
             }
             return resultado;
+        }
+
+        public double[] returnLimitProbabiliity() {
+            double[] probability = new Double[9];
+            StreamReader reader = new StreamReader("ProbLimites.txt");
+            string line;
+            int i = 0;
+            while ((line = reader.ReadLine()) != null && i<probability.Length) {
+                probability[i] = Convert.ToDouble(line);
+                i++;
+            }
+            return probability;
         }
 
     }

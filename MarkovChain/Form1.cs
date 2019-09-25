@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Modelo;
+using System.Collections;
 
 
 namespace MarkovChain
@@ -60,6 +61,7 @@ namespace MarkovChain
             for(int i = 0; i < 9; i++) { 
             lastState.Items.Add("Estado "+i);
             NextState.Items.Add("Estado " + i);
+            probLimits.Items.Add("Estado" + i);
             }
             lastState.SelectedItem=0;
             NextState.SelectedItem = 0;
@@ -95,7 +97,8 @@ namespace MarkovChain
 
         public void saveDates() {
            
-            string y = "-----------------DATOS GENERADOR CON "+dayAnalyze.Text+" DIAS-------------------"+"\n";
+            string y = "";
+            
             for (int i = 0; i < z.GetLength(0); i++)
             {
                 for (int j = 0; j < z.GetLength(1); j++)
@@ -114,6 +117,27 @@ namespace MarkovChain
         private void SaveDates_Click(object sender, EventArgs e)
         {
             saveDates();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void getProbLimit_Click(object sender, EventArgs e)
+        {
+            double[] probability = new Double[9];
+            StreamReader reader = new StreamReader("ProbLimites.txt");
+            string line;
+            int i = 0;
+            while ((line = reader.ReadLine()) != null && i < probability.Length)
+            {
+                probability[i] = Convert.ToDouble(line);
+                i++;
+            }
+
+            int num = probLimits.SelectedIndex;
+            ProbabilityLimits.Text ="Probabildad:"+ probability[num];
         }
     }
 }

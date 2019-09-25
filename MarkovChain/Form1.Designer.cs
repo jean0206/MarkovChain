@@ -39,13 +39,16 @@
             this.Result = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.getResult = new System.Windows.Forms.Button();
+            this.probLimits = new System.Windows.Forms.ComboBox();
+            this.ProbabilityLimits = new System.Windows.Forms.TextBox();
+            this.getProbLimit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // calculateChain
             // 
-            this.calculateChain.Location = new System.Drawing.Point(12, 43);
+            this.calculateChain.Location = new System.Drawing.Point(101, 43);
             this.calculateChain.Name = "calculateChain";
-            this.calculateChain.Size = new System.Drawing.Size(98, 22);
+            this.calculateChain.Size = new System.Drawing.Size(111, 22);
             this.calculateChain.TabIndex = 0;
             this.calculateChain.Text = "Cargar Datos";
             this.calculateChain.UseVisualStyleBackColor = true;
@@ -53,9 +56,9 @@
             // 
             // SaveDates
             // 
-            this.SaveDates.Location = new System.Drawing.Point(12, 88);
+            this.SaveDates.Location = new System.Drawing.Point(101, 144);
             this.SaveDates.Name = "SaveDates";
-            this.SaveDates.Size = new System.Drawing.Size(98, 23);
+            this.SaveDates.Size = new System.Drawing.Size(110, 23);
             this.SaveDates.TabIndex = 1;
             this.SaveDates.Text = "Guardar Datos";
             this.SaveDates.UseVisualStyleBackColor = true;
@@ -101,7 +104,7 @@
             // 
             // dayAnalyze
             // 
-            this.dayAnalyze.Location = new System.Drawing.Point(265, 105);
+            this.dayAnalyze.Location = new System.Drawing.Point(265, 101);
             this.dayAnalyze.Name = "dayAnalyze";
             this.dayAnalyze.Size = new System.Drawing.Size(156, 20);
             this.dayAnalyze.TabIndex = 6;
@@ -110,7 +113,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(277, 89);
+            this.label3.Location = new System.Drawing.Point(277, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(117, 13);
             this.label3.TabIndex = 7;
@@ -128,7 +131,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Cooper Black", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(545, 88);
+            this.label4.Location = new System.Drawing.Point(545, 78);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(82, 13);
             this.label4.TabIndex = 9;
@@ -136,13 +139,38 @@
             // 
             // getResult
             // 
-            this.getResult.Location = new System.Drawing.Point(13, 133);
+            this.getResult.Location = new System.Drawing.Point(101, 98);
             this.getResult.Name = "getResult";
-            this.getResult.Size = new System.Drawing.Size(97, 23);
+            this.getResult.Size = new System.Drawing.Size(110, 23);
             this.getResult.TabIndex = 10;
             this.getResult.Text = "Dar Resultado";
             this.getResult.UseVisualStyleBackColor = true;
             this.getResult.Click += new System.EventHandler(this.getResult_Click);
+            // 
+            // probLimits
+            // 
+            this.probLimits.FormattingEnabled = true;
+            this.probLimits.Location = new System.Drawing.Point(265, 188);
+            this.probLimits.Name = "probLimits";
+            this.probLimits.Size = new System.Drawing.Size(156, 21);
+            this.probLimits.TabIndex = 11;
+            // 
+            // ProbabilityLimits
+            // 
+            this.ProbabilityLimits.Location = new System.Drawing.Point(504, 188);
+            this.ProbabilityLimits.Name = "ProbabilityLimits";
+            this.ProbabilityLimits.Size = new System.Drawing.Size(156, 20);
+            this.ProbabilityLimits.TabIndex = 12;
+            // 
+            // getProbLimit
+            // 
+            this.getProbLimit.Location = new System.Drawing.Point(101, 186);
+            this.getProbLimit.Name = "getProbLimit";
+            this.getProbLimit.Size = new System.Drawing.Size(108, 23);
+            this.getProbLimit.TabIndex = 13;
+            this.getProbLimit.Text = "Probabilidad limite";
+            this.getProbLimit.UseVisualStyleBackColor = true;
+            this.getProbLimit.Click += new System.EventHandler(this.getProbLimit_Click);
             // 
             // Form1
             // 
@@ -150,6 +178,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.getProbLimit);
+            this.Controls.Add(this.ProbabilityLimits);
+            this.Controls.Add(this.probLimits);
             this.Controls.Add(this.getResult);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Result);
@@ -163,6 +194,7 @@
             this.Controls.Add(this.calculateChain);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,6 +213,9 @@
         private System.Windows.Forms.TextBox Result;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button getResult;
+        private System.Windows.Forms.ComboBox probLimits;
+        private System.Windows.Forms.TextBox ProbabilityLimits;
+        private System.Windows.Forms.Button getProbLimit;
     }
 }
 
