@@ -4,36 +4,31 @@ namespace Modelo
 {
     public class Matriz
     {
-        public double[][] multiplicarMatriz(double[][] matriz, int exponenete) {
-            double[][] matrizTem = matriz;
-            double n = matriz[0].Length;
-            // filas de la matriz A
-            double m = matriz.Length;
-            // filas de la matriz B
-            double n2 = matriz.Length;
-            // columnas de la matriz B
-            double o = matriz[0].Length;
-            // nueva matriz 
-            double[][] c = new double[m][o];
-            // se comprueba si las matrices se pueden multiplicar
-           
-                for (int i = 0; i < n - 1; i++)
-                {
-                    int a = 0;
-                    for (int j = 0; j < n2 - 1; j++)
-                    {
-                        //aqui se multiplica la matriz
-                        a = a + (matriz[i][j] * B[j][i]);
-                    }
-
-                }
+        public double[,] multiplyMatrix(double[,] matriz, int exponenet) {
+            double[,] a = matriz;
+            double[,] b = matriz;
+            double[,] c= new double[a.Length,a.Length];
+            int x = 0;
+            while (x<exponenet) { 
             
-            /**
-             *  si no se cumple la condición se retorna una matriz vacía
-             */
+                c = new double[a.GetLength(0), b.GetLength(0)];
+                for (int i = 0; i < c.GetLength(0); i++)
+                {
+                    for (int j = 0; j < c.GetLength(0); j++)
+                    {
+                        c[i, j] = 0;
+                        for (int k = 0; k < a.GetLength(0); k++) //OR k<b.GetLength(0)
+                            c[i, j] = c[i, j] + a[i, k] * b[k, j];
+                    }
+                }
+                a = c;
+                b = c;
+                x++;
+            }
             return c;
-            return null;
         }
+
+
         
     }
 

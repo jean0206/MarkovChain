@@ -1,0 +1,13 @@
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\bin\Debug\MarkovChain.exe.config
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\bin\Debug\MarkovChain.exe
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\bin\Debug\MarkovChain.pdb
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\bin\Debug\Modelo.dll
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\bin\Debug\Modelo.pdb
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.csprojAssemblyReference.cache
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.Form1.resources
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.Properties.Resources.resources
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.csproj.GenerateResource.cache
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.csproj.CoreCompileInputs.cache
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.csproj.CopyComplete
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.exe
+C:\Users\jeank\source\repos\MarkovChain\MarkovChain\MarkovChain\obj\Debug\MarkovChain.pdb
