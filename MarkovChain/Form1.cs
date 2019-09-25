@@ -22,21 +22,32 @@ namespace MarkovChain
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            double[,] matriz = new double[2,2 ] {
+            double[,] matriz = new double[2,2] {
                 {1,2},{3,4}
             };
 
-            double[,] temporal=ma.multiplyMatrix(matriz, 4);
-            
+            double[,] temporal = ma.multiply(matriz,matriz,20);
+
             String x = "";
-            
-            for (int i = 0; i< temporal.GetLength(0); i++) {
+
+            for (int i = 0; i < temporal.GetLength(0); i++) {
                 for (int j = 0; j < temporal.GetLength(1); j++) {
-                    x += temporal[i, j]+" ";
+                    x += temporal[i, j] + " ";
                 }
                 x += "\n";
             }
             MessageBox.Show(x);
+           /* double[,] z = ma.ReadArchive();
+            //MessageBox.Show("" + z[8,8]);
+            for (int i = 0; i < z.GetLength(0); i++)
+            {
+                for (int j = 0; j < z.GetLength(1); j++)
+                {
+                    x += z[i, j] + " ";
+                }
+                x += "\n";
+            }
+            MessageBox.Show(x);*/
         }
     }
 }
