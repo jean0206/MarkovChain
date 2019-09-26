@@ -12,44 +12,32 @@ using Modelo;
 using System.Collections;
 
 
+
 namespace MarkovChain
 {
     public partial class Form1 : Form
     {
-        private Matriz ma;
+        private Matriz2 ma;
         private int indexLastState;
         private int indexNextState;
         double[,] z;
+        string[,] s;
         public Form1()
         {
             InitializeComponent();
-            ma = new Matriz();
+            ma = new Matriz2();
             loadStates();
+           s = ma.matrixCombinatory();
         }
 
         private void Button1_Click(object sender, EventArgs e)
         {            
             String x = "";
-            /*
-            for (int i = 0; i < temporal.GetLength(0); i++) {
-                for (int j = 0; j < temporal.GetLength(1); j++) {
-                    x += temporal[i, j] + " ";
-                }
-                x += "\n";
-            }*/
+            
             
             z = ma.ReadArchive();
             MessageBox.Show("Los datos se cargaron correctamente");
-           /* 
-            for (int i = 0; i < z.GetLength(0); i++)
-            {
-                for (int j = 0; j < z.GetLength(1); j++)
-                {
-                    x += z[i, j] + " ";
-                }
-                x += "\n";
-            }
-            MessageBox.Show(x);*/
+          
         }
 
         private void lastState_SelectedIndexChanged(object sender, EventArgs e)
@@ -61,7 +49,9 @@ namespace MarkovChain
             for(int i = 0; i < 9; i++) { 
             lastState.Items.Add("Estado "+i);
             NextState.Items.Add("Estado " + i);
-            probLimits.Items.Add("Estado" + i);
+            probLimits.Items.Add("Estado " + i);
+            stateProm.Items.Add("Estado " + i);
+            returnTimeSelect.Items.Add("Estado " + i);
             }
             lastState.SelectedItem=0;
             NextState.SelectedItem = 0;
@@ -91,7 +81,7 @@ namespace MarkovChain
              {
                  MessageBox.Show("Digite un valor numerico");
              }
-            MessageBox.Show(y);
+           // MessageBox.Show(y);
 
         }
 
@@ -108,7 +98,7 @@ namespace MarkovChain
                 y += "" + "\n";              
                
             }            
-            MessageBox.Show(y);
+            //MessageBox.Show(y);
             string docPath = "";
             File.WriteAllText(Path.Combine(docPath,"Dates.csv"),y);
             MessageBox.Show("Se guardaron exitosamente los datos");
@@ -137,7 +127,65 @@ namespace MarkovChain
             }
 
             int num = probLimits.SelectedIndex;
-            ProbabilityLimits.Text ="Probabildad:"+ probability[num];
+            ProbabilityLimits.Text ="Probabildad: "+ probability[num];
+        }
+
+        private void returnTime_Click(object sender, EventArgs e)
+        {
+            int[] probability = new int[9];
+            StreamReader reader = new StreamReader("TiempoRetorno.txt");
+            string line;
+            int i = 0;
+            while ((line = reader.ReadLine()) != null && i < probability.Length)
+            {
+                probability[i] =Convert.ToInt32( Convert.ToDouble(""+line));
+                i++;
+            }
+
+            int num = returnTimeSelect.SelectedIndex;
+            returnSelectTime.Text = "Tiempo de retorno " + probability[num]+" dias";
+        }
+
+        private void returnSelectTime_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Probabilities_Click(object sender, EventArgs e)
+        {
+            double[,] x = ma.matrizValues();
+            string y = "";
+
+            for (int i = 0; i < x.GetLength(0); i++)
+            {
+                for (int j = 0; j < x.GetLength(1); j++)
+                {
+                    y += x[i, j] + ";";
+                }
+                y += "|" + "\n";
+
+            }
+            //MessageBox.Show(y);
+            int se = stateProm.SelectedIndex;
+            int de = combinatoryItems.SelectedIndex;
+            resultProm.Text = "" + x[de, se];
+
+        }
+
+        private void StateProm_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            combinatoryItems.Items.Clear();
+            int x = stateProm.SelectedIndex;
+            
+            for (int i = 0; i < s.GetLength(0)-1; i++) {
+                combinatoryItems.Items.Add(s[i, x]);
+            }
+        }
+
+        private void Label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
-}
+    }
+
